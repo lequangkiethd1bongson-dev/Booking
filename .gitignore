@@ -1,0 +1,21 @@
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.sln.docstates
+
+# Build artifacts
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+*.exe
+*.pdb
+*.dll
+
+# NuGet packages
+packages/
+
+# Thêm các file DevExpress nếu cần
+*.licx
+licenses.licx
