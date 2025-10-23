@@ -58,13 +58,14 @@
             this.groupThongTin.Size = new System.Drawing.Size(736, 160);
             this.groupThongTin.TabIndex = 1;
             this.groupThongTin.Text = "Thông tin khách hàng";
+            this.groupThongTin.Paint += new System.Windows.Forms.PaintEventHandler(this.groupThongTin_Paint);
             // 
             // lblGhiChu
             // 
             this.lblGhiChu.AutoSize = true;
             this.lblGhiChu.Location = new System.Drawing.Point(400, 70);
             this.lblGhiChu.Name = "lblGhiChu";
-            this.lblGhiChu.Size = new System.Drawing.Size(58, 16);
+            this.lblGhiChu.Size = new System.Drawing.Size(49, 13);
             this.lblGhiChu.TabIndex = 4;
             this.lblGhiChu.Text = "Ghi chú: ";
             // 
@@ -73,7 +74,7 @@
             this.lblGioDen.AutoSize = true;
             this.lblGioDen.Location = new System.Drawing.Point(400, 40);
             this.lblGioDen.Name = "lblGioDen";
-            this.lblGioDen.Size = new System.Drawing.Size(59, 16);
+            this.lblGioDen.Size = new System.Drawing.Size(50, 13);
             this.lblGioDen.TabIndex = 3;
             this.lblGioDen.Text = "Giờ đến: ";
             // 
@@ -82,7 +83,7 @@
             this.lblSoNguoi.AutoSize = true;
             this.lblSoNguoi.Location = new System.Drawing.Point(20, 100);
             this.lblSoNguoi.Name = "lblSoNguoi";
-            this.lblSoNguoi.Size = new System.Drawing.Size(67, 16);
+            this.lblSoNguoi.Size = new System.Drawing.Size(56, 13);
             this.lblSoNguoi.TabIndex = 2;
             this.lblSoNguoi.Text = "Số người: ";
             // 
@@ -91,7 +92,7 @@
             this.lblSDT.AutoSize = true;
             this.lblSDT.Location = new System.Drawing.Point(20, 70);
             this.lblSDT.Name = "lblSDT";
-            this.lblSDT.Size = new System.Drawing.Size(91, 16);
+            this.lblSDT.Size = new System.Drawing.Size(76, 13);
             this.lblSDT.TabIndex = 1;
             this.lblSDT.Text = "Số điện thoại: ";
             // 
@@ -100,7 +101,7 @@
             this.lblHoTen.AutoSize = true;
             this.lblHoTen.Location = new System.Drawing.Point(20, 40);
             this.lblHoTen.Name = "lblHoTen";
-            this.lblHoTen.Size = new System.Drawing.Size(53, 16);
+            this.lblHoTen.Size = new System.Drawing.Size(46, 13);
             this.lblHoTen.TabIndex = 0;
             this.lblHoTen.Text = "Họ tên: ";
             // 

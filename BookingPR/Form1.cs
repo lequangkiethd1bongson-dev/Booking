@@ -36,6 +36,12 @@ namespace BookingPR
             navigationFrame1.SelectedPage = pageHome;
         }
 
+        // Public helper to navigate to booking page (use instead of referencing pageBooking directly)
+        public void NavigateToBooking()
+        {
+            navigationFrame1.SelectedPage = pageBooking;
+        }
+
         private void LoginUC_OnLoginSuccess(BookingPR.Data.KhachHang kh)
         {
             // ✅ Khi đăng nhập thành công, chuyển sang trang Home

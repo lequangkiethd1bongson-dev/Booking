@@ -40,6 +40,18 @@ namespace BookingPR
             b1.Dock = DockStyle.Fill;
         }
 
+        // public API to restart the booking flow from the first step
+        public void StartNewBooking()
+        {
+            // ensure UI change runs on UI thread
+            if (InvokeRequired)
+            {
+                Invoke(new Action(StartNewBooking));
+                return;
+            }
+            LoadBooking1();
+        }
+
         private string ten, sdt, ghichu;
         private int songuoi;
         private DateTime gioden;
