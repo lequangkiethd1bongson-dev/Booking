@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LichsuUC));
             this.btnqrcode = new System.Windows.Forms.Button();
             this.dgv1 = new System.Windows.Forms.DataGridView();
             this.groupDetails = new System.Windows.Forms.GroupBox();
@@ -39,6 +40,7 @@
             this.lblSoNguoi = new System.Windows.Forms.Label();
             this.lblSDT = new System.Windows.Forms.Label();
             this.lblKhachHang = new System.Windows.Forms.Label();
+            this.btHuy = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.groupDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbQrPreview)).BeginInit();
@@ -47,9 +49,10 @@
             // btnqrcode
             // 
             this.btnqrcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnqrcode.Location = new System.Drawing.Point(650, 410);
+            this.btnqrcode.Location = new System.Drawing.Point(758, 505);
+            this.btnqrcode.Margin = new System.Windows.Forms.Padding(4);
             this.btnqrcode.Name = "btnqrcode";
-            this.btnqrcode.Size = new System.Drawing.Size(120, 32);
+            this.btnqrcode.Size = new System.Drawing.Size(140, 39);
             this.btnqrcode.TabIndex = 0;
             this.btnqrcode.Text = "Quét QR";
             this.btnqrcode.UseVisualStyleBackColor = true;
@@ -61,12 +64,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv1.BackgroundColor = System.Drawing.Color.White;
             this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv1.Location = new System.Drawing.Point(10, 10);
+            this.dgv1.Location = new System.Drawing.Point(12, 12);
+            this.dgv1.Margin = new System.Windows.Forms.Padding(4);
             this.dgv1.Name = "dgv1";
             this.dgv1.ReadOnly = true;
             this.dgv1.RowHeadersVisible = false;
-            this.dgv1.Size = new System.Drawing.Size(760, 220);
+            this.dgv1.RowHeadersWidth = 51;
+            this.dgv1.Size = new System.Drawing.Size(887, 271);
             this.dgv1.TabIndex = 1;
+            this.dgv1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellClick);
             // 
             // groupDetails
             // 
@@ -80,18 +86,21 @@
             this.groupDetails.Controls.Add(this.lblSoNguoi);
             this.groupDetails.Controls.Add(this.lblSDT);
             this.groupDetails.Controls.Add(this.lblKhachHang);
-            this.groupDetails.Location = new System.Drawing.Point(10, 240);
+            this.groupDetails.Location = new System.Drawing.Point(12, 295);
+            this.groupDetails.Margin = new System.Windows.Forms.Padding(4);
             this.groupDetails.Name = "groupDetails";
-            this.groupDetails.Size = new System.Drawing.Size(620, 210);
+            this.groupDetails.Padding = new System.Windows.Forms.Padding(4);
+            this.groupDetails.Size = new System.Drawing.Size(723, 258);
             this.groupDetails.TabIndex = 2;
             this.groupDetails.TabStop = false;
             this.groupDetails.Text = "Thông tin đặt bàn (sau khi quét QR)";
             // 
             // pbQrPreview
             // 
-            this.pbQrPreview.Location = new System.Drawing.Point(430, 20);
+            this.pbQrPreview.Location = new System.Drawing.Point(502, 25);
+            this.pbQrPreview.Margin = new System.Windows.Forms.Padding(4);
             this.pbQrPreview.Name = "pbQrPreview";
-            this.pbQrPreview.Size = new System.Drawing.Size(170, 170);
+            this.pbQrPreview.Size = new System.Drawing.Size(198, 209);
             this.pbQrPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbQrPreview.TabIndex = 7;
             this.pbQrPreview.TabStop = false;
@@ -99,77 +108,100 @@
             // lblTongTien
             // 
             this.lblTongTien.AutoSize = true;
-            this.lblTongTien.Location = new System.Drawing.Point(20, 150);
+            this.lblTongTien.Location = new System.Drawing.Point(23, 185);
+            this.lblTongTien.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTongTien.Name = "lblTongTien";
-            this.lblTongTien.Size = new System.Drawing.Size(59, 13);
+            this.lblTongTien.Size = new System.Drawing.Size(70, 16);
             this.lblTongTien.TabIndex = 6;
             this.lblTongTien.Text = "Tổng tiền: ";
             // 
             // lblTrangThai
             // 
             this.lblTrangThai.AutoSize = true;
-            this.lblTrangThai.Location = new System.Drawing.Point(20, 125);
+            this.lblTrangThai.Location = new System.Drawing.Point(23, 154);
+            this.lblTrangThai.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTrangThai.Name = "lblTrangThai";
-            this.lblTrangThai.Size = new System.Drawing.Size(63, 13);
+            this.lblTrangThai.Size = new System.Drawing.Size(75, 16);
             this.lblTrangThai.TabIndex = 5;
             this.lblTrangThai.Text = "Trạng thái: ";
             // 
             // lblGhiChu
             // 
             this.lblGhiChu.AutoSize = true;
-            this.lblGhiChu.Location = new System.Drawing.Point(20, 100);
+            this.lblGhiChu.Location = new System.Drawing.Point(23, 123);
+            this.lblGhiChu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGhiChu.Name = "lblGhiChu";
-            this.lblGhiChu.Size = new System.Drawing.Size(49, 13);
+            this.lblGhiChu.Size = new System.Drawing.Size(58, 16);
             this.lblGhiChu.TabIndex = 4;
             this.lblGhiChu.Text = "Ghi chú: ";
             // 
             // lblGioDat
             // 
             this.lblGioDat.AutoSize = true;
-            this.lblGioDat.Location = new System.Drawing.Point(20, 75);
+            this.lblGioDat.Location = new System.Drawing.Point(23, 92);
+            this.lblGioDat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGioDat.Name = "lblGioDat";
-            this.lblGioDat.Size = new System.Drawing.Size(48, 13);
+            this.lblGioDat.Size = new System.Drawing.Size(56, 16);
             this.lblGioDat.TabIndex = 3;
             this.lblGioDat.Text = "Giờ đặt: ";
             // 
             // lblSoNguoi
             // 
             this.lblSoNguoi.AutoSize = true;
-            this.lblSoNguoi.Location = new System.Drawing.Point(20, 50);
+            this.lblSoNguoi.Location = new System.Drawing.Point(23, 62);
+            this.lblSoNguoi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSoNguoi.Name = "lblSoNguoi";
-            this.lblSoNguoi.Size = new System.Drawing.Size(56, 13);
+            this.lblSoNguoi.Size = new System.Drawing.Size(67, 16);
             this.lblSoNguoi.TabIndex = 2;
             this.lblSoNguoi.Text = "Số người: ";
             // 
             // lblSDT
             // 
             this.lblSDT.AutoSize = true;
-            this.lblSDT.Location = new System.Drawing.Point(20, 25);
+            this.lblSDT.Location = new System.Drawing.Point(23, 31);
+            this.lblSDT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSDT.Name = "lblSDT";
-            this.lblSDT.Size = new System.Drawing.Size(76, 13);
+            this.lblSDT.Size = new System.Drawing.Size(91, 16);
             this.lblSDT.TabIndex = 1;
             this.lblSDT.Text = "Số điện thoại: ";
             // 
             // lblKhachHang
             // 
             this.lblKhachHang.AutoSize = true;
-            this.lblKhachHang.Location = new System.Drawing.Point(20, 0);
+            this.lblKhachHang.Location = new System.Drawing.Point(23, 0);
+            this.lblKhachHang.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKhachHang.Name = "lblKhachHang";
-            this.lblKhachHang.Size = new System.Drawing.Size(43, 13);
+            this.lblKhachHang.Size = new System.Drawing.Size(50, 16);
             this.lblKhachHang.TabIndex = 0;
             this.lblKhachHang.Text = "Khách: ";
             // 
+            // btHuy
+            // 
+            this.btHuy.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btHuy.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btHuy.Appearance.Options.UseFont = true;
+            this.btHuy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btHuy.ImageOptions.Image")));
+            this.btHuy.Location = new System.Drawing.Point(758, 245);
+            this.btHuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btHuy.Name = "btHuy";
+            this.btHuy.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btHuy.Size = new System.Drawing.Size(137, 38);
+            this.btHuy.TabIndex = 3;
+            this.btHuy.Text = "Hủy đặt bàn";
+            this.btHuy.Click += new System.EventHandler(this.btHuy_Click);
+            // 
             // LichsuUC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btHuy);
             this.Controls.Add(this.groupDetails);
             this.Controls.Add(this.dgv1);
             this.Controls.Add(this.btnqrcode);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "LichsuUC";
-            this.Size = new System.Drawing.Size(797, 460);
-            this.Load += new System.EventHandler(this.LichsuUC_Load_1);
+            this.Size = new System.Drawing.Size(930, 566);
+           
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
             this.groupDetails.ResumeLayout(false);
             this.groupDetails.PerformLayout();
@@ -191,5 +223,6 @@
         private System.Windows.Forms.Label lblTrangThai;
         private System.Windows.Forms.Label lblTongTien;
         private System.Windows.Forms.PictureBox pbQrPreview;
+        private DevExpress.XtraEditors.SimpleButton btHuy;
     }
 }

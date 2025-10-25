@@ -31,7 +31,7 @@ namespace BookingPR
 
         private void LichsuUC_VisibleChanged(object sender, EventArgs e)
         {
-            if (this.Visible )
+            if (this.Visible)
             {
                 LoadLS();
             }
@@ -116,6 +116,9 @@ namespace BookingPR
 
         private void LichsuUC_Load(object sender, EventArgs e)
         {
+            dgv1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv1.MultiSelect = false;
+            dgv1.CellClick += dgv1_CellClick;
 
         }
 
@@ -253,9 +256,73 @@ namespace BookingPR
             }
         }
 
-        private void LichsuUC_Load_1(object sender, EventArgs e)
+        private int? selectedDatBanId = null;
+
+        private void btHuy_Click(object sender, EventArgs e)
+        {
+            if (selectedDatBanId == null)
+            {
+                XtraMessageBox.Show("Vui lòng chọn một đơn đặt bàn để hủy.",
+                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int datBanId = selectedDatBanId.Value;
+
+            using (var db = new Model1())
+            {
+                var datBan = db.DatBan.FirstOrDefault(d => d.DatBanID == datBanId);
+                if (datBan == null)
+                {
+                    XtraMessageBox.Show("Không tìm thấy đơn đặt bàn này!", "Lỗi",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Kiểm tra thời gian hủy: chỉ cho phép hủy trước 12 tiếng
+                TimeSpan timeDiff = datBan.GioDat - DateTime.Now;
+                if (timeDiff.TotalHours < 12)
+                {
+                    XtraMessageBox.Show("Không thể hủy đơn này vì còn dưới 12 tiếng trước giờ đặt!",
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Xác nhận xóa
+                var result = XtraMessageBox.Show(
+                    "Bạn có chắc chắn muốn hủy đơn đặt bàn này?",
+                    "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Xóa chi tiết đặt bàn trước
+                    var chiTiet = db.ChiTietDatBan.Where(ct => ct.DatBanID == datBanId).ToList();
+                    db.ChiTietDatBan.RemoveRange(chiTiet);
+
+                    // Sau đó xóa đơn chính
+                    db.DatBan.Remove(datBan);
+                    db.SaveChanges();
+
+                    XtraMessageBox.Show("Đơn đặt bàn đã được hủy thành công!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // 🔄 Load lại dữ liệu bảng
+                    LoadLS(force: true);
+                    selectedDatBanId = null;
+                }
+            }
+        }
+
+        private void dgv1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
+            if (e.RowIndex >= 0 && dgv1.Rows[e.RowIndex].Cells["DatBanID"].Value != null)
+            {
+                selectedDatBanId = Convert.ToInt32(dgv1.Rows[e.RowIndex].Cells["DatBanID"].Value);
+            }
         }
     }
 }
+
+    
+

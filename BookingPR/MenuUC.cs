@@ -39,7 +39,8 @@ namespace BookingPR
                         Width = 200,
                         Height = 250,
                         BorderStyle = BorderStyle.FixedSingle,
-                        Margin = new Padding(10)
+                        Margin = new Padding(10),
+                        BackColor = Color.FromArgb(230, Color.White)
                     };
 
                     PictureBox pic = new PictureBox
