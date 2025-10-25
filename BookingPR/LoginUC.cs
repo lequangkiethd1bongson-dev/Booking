@@ -91,5 +91,10 @@ namespace BookingPR
                 XtraMessageBox.Show("Bạn đã đăng ký thành công! Vui lòng đăng nhập.", "Thông báo");
             }
         }
+
+        private void LoginUC_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -321,6 +321,11 @@ namespace BookingPR
                 selectedDatBanId = Convert.ToInt32(dgv1.Rows[e.RowIndex].Cells["DatBanID"].Value);
             }
         }
+
+        private void LichsuUC_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
