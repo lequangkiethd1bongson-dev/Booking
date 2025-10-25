@@ -195,5 +195,10 @@ namespace BookingPR
         {
             LoadMenu();
         }
+
+        private void panelBottom_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

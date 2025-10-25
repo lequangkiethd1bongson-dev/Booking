@@ -87,8 +87,26 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtGioDen.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtGioDen.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
+            // Cho phép chọn cả ngày và giờ
+            this.dtGioDen.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Vista;
+            this.dtGioDen.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
+            this.dtGioDen.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+
+            // Định dạng hiển thị gồm ngày + giờ
+            this.dtGioDen.Properties.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+            this.dtGioDen.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtGioDen.Properties.EditFormat.FormatString = "dd/MM/yyyy HH:mm";
+            this.dtGioDen.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+
+            // Mặt nạ nhập liệu (mask) cho người dùng
+            this.dtGioDen.Properties.Mask.EditMask = "dd/MM/yyyy HH:mm";
+
+
+
             this.dtGioDen.Size = new System.Drawing.Size(154, 22);
             this.dtGioDen.TabIndex = 2;
+            this.dtGioDen.EditValueChanged += new System.EventHandler(this.dtGioDen_EditValueChanged);
             // 
             // txtNote
             // 

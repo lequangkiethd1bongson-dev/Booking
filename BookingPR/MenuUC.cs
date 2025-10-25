@@ -93,6 +93,12 @@ namespace BookingPR
                     pnl.Controls.Add(pic);
 
                     flowLayoutPanel1.Controls.Add(pnl);
+                    flowLayoutPanel1.AutoScroll = true;
+                    flowLayoutPanel1.WrapContents = true; // xuống hàng khi đầy
+                    flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight; // hiển thị ngang
+                    flowLayoutPanel1.Padding = new Padding(10);
+                    flowLayoutPanel1.AutoScrollMargin = new Size(10, 10);
+
                 }
             }
         }

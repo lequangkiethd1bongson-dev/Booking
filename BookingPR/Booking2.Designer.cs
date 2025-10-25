@@ -83,6 +83,7 @@
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(880, 64);
             this.panelBottom.TabIndex = 3;
+            this.panelBottom.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBottom_Paint);
             // 
             // Booking2
             // 

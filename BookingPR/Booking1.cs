@@ -16,17 +16,10 @@ namespace BookingPR
         public delegate void ContinueB2(string hoTen, string sdt, int soNguoi, DateTime ngayDat, string ghiChu);
         public event ContinueB2 OnContinue2;
 
-        //private KhachHang khDangnhap;
-        public Booking1(/*KhachHang kh = null*/)
+        public Booking1()
         {
             InitializeComponent();
-            /*khDangnhap = kh;
-            if (khDangnhap != null)
-            {
-                txtHoTen.Text = khDangnhap.HoTen;
-                txtSDT.Text = khDangnhap.SDT;
-            }*/
-           // HienThiBooking1();
+            
         }
 
         private void HienThiBooking1()
@@ -87,15 +80,20 @@ namespace BookingPR
                 return;
             }
 
-            DateTime gioDen = Convert.ToDateTime(dtGioDen.EditValue);
+            DateTime gioDen = dtGioDen.DateTime;
             if (gioDen < DateTime.Now)
             {
                 MessageBox.Show("Giờ đến phải lớn hơn thời gian hiện tại!", "Thông báo");
                 return;
             }
 
-            OnContinue2?.Invoke( txtHoTen.Text.Trim(), txtSDT.Text.Trim(), (int)numSoNguoi.Value, dtGioDen.DateTime, txtNote.Text.Trim()
+            OnContinue2?.Invoke( txtHoTen.Text.Trim(), txtSDT.Text.Trim(), (int)numSoNguoi.Value, gioDen, txtNote.Text.Trim()
             );
+        }
+
+        private void dtGioDen_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -19,14 +19,7 @@
                 InitializeComponent();
             
 
-                Label lbl = new Label
-                {
-                    Text = "🏠 Đây là TRANG CHỦ",
-                    Dock = DockStyle.Fill,
-                    Font = new System.Drawing.Font("Segoe UI", 20, System.Drawing.FontStyle.Bold),
-                    TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-                };
-                this.Controls.Add(lbl);
+              
                 this.Dock = DockStyle.Fill;
             }
 
