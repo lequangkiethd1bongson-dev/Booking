@@ -16,6 +16,7 @@ namespace BookingPR.Data
         }
 
         public int KhachHangID { get; set; }
+        public bool IsAdmin { get; set; }
 
         [Required]
         [StringLength(100)]
