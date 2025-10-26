@@ -61,6 +61,23 @@ namespace BookingPR
 
         private void btnQuayLai_Click(object sender, EventArgs e)
         {
+            // prefer to go back to Booking1 (personal info step)
+            Control c = this.Parent;
+            while (c != null && !(c is BookingUC))
+            {
+                c = c.Parent;
+            }
+            if (c is BookingUC bookingUc)
+            {
+                try
+                {
+                    bookingUc.ShowBooking1();
+                    return;
+                }
+                catch { /* ignore and fallback */ }
+            }
+
+            // fallback: original behavior (navigate to home)
             var mainForm = this.FindForm() as Form1;
             if (mainForm != null)
             {
@@ -89,7 +106,7 @@ namespace BookingPR
             try
             {
                 // TODO: move to App.config later
-                string connString = @"Data Source=DESKTOP-5VT0ON4\MSSQLSERVER01;Initial Catalog=QLDatBan;Integrated Security=True";
+                string connString = @"Data Source=Trung;Initial Catalog=QLDatBan;Integrated Security=True";
 
                 using (SqlConnection conn = new SqlConnection(connString))
                 {

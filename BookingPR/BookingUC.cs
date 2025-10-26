@@ -73,6 +73,56 @@ namespace BookingPR
             b2.Dock = DockStyle.Fill;
         }
 
+        // Public method to show the Booking2 step again (preserve b2 state if still in memory).
+        // Call this when user presses "Quay lại" from Booking3.
+        public void ShowBooking2()
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action(ShowBooking2));
+                return;
+            }
+
+            PanelMain.Controls.Clear();
+
+            if (b2 == null)
+            {
+                // recreate Booking2 using stored values
+                b2 = new Booking2(ten, sdt, songuoi, gioden, ghichu);
+            }
+
+            // ensure the event handler is attached exactly once
+            b2.OnContinue3 -= B2_OnContinue3;
+            b2.OnContinue3 += B2_OnContinue3;
+
+            PanelMain.Controls.Add(b2);
+            b2.Dock = DockStyle.Fill;
+        }
+
+        // NEW: Public method to return to the personal-info step (Booking1)
+        public void ShowBooking1()
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action(ShowBooking1));
+                return;
+            }
+
+            PanelMain.Controls.Clear();
+
+            if (b1 == null)
+            {
+                b1 = new Booking1();
+            }
+
+            // ensure the continuation handler is attached exactly once
+            b1.OnContinue2 -= b1_Continue;
+            b1.OnContinue2 += b1_Continue;
+
+            PanelMain.Controls.Add(b1);
+            b1.Dock = DockStyle.Fill;
+        }
+
         private void PanelMain_Paint(object sender, PaintEventArgs e)
         {
 
