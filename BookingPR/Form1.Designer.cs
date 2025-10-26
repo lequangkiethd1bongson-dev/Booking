@@ -42,6 +42,7 @@
             this.btDat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btHistory = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btSign = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlSeparator1 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
@@ -59,9 +60,9 @@
             // 
             this.fluentDesignFormContainer1.Controls.Add(this.navigationFrame1);
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(60, 39);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(312, 39);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(1046, 580);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(794, 580);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // navigationFrame1
@@ -81,50 +82,52 @@
             this.pageHistory,
             this.pageLogin});
             this.navigationFrame1.SelectedPage = this.pageMenu;
-            this.navigationFrame1.Size = new System.Drawing.Size(1046, 580);
+            this.navigationFrame1.Size = new System.Drawing.Size(794, 580);
             this.navigationFrame1.TabIndex = 1;
             this.navigationFrame1.Click += new System.EventHandler(this.navigationFrame1_Click);
             // 
             // pageHome
             // 
             this.pageHome.Name = "pageHome";
-            this.pageHome.Size = new System.Drawing.Size(1046, 580);
+            this.pageHome.Size = new System.Drawing.Size(794, 580);
             // 
             // pageMenu
             // 
             this.pageMenu.Name = "pageMenu";
-            this.pageMenu.Size = new System.Drawing.Size(1046, 580);
+            this.pageMenu.Size = new System.Drawing.Size(794, 580);
             this.pageMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pageMenu_Paint);
             // 
             // pageBooking
             // 
             this.pageBooking.Name = "pageBooking";
-            this.pageBooking.Size = new System.Drawing.Size(1046, 580);
+            this.pageBooking.Size = new System.Drawing.Size(794, 580);
             // 
             // pageHistory
             // 
             this.pageHistory.Name = "pageHistory";
-            this.pageHistory.Size = new System.Drawing.Size(1046, 580);
+            this.pageHistory.Size = new System.Drawing.Size(794, 580);
             // 
             // pageLogin
             // 
             this.pageLogin.Name = "pageLogin";
-            this.pageLogin.Size = new System.Drawing.Size(1046, 580);
+            this.pageLogin.Size = new System.Drawing.Size(794, 580);
             // 
             // accordionControl1
             // 
+            this.accordionControl1.Appearance.AccordionControl.BackColor = System.Drawing.Color.Red;
+            this.accordionControl1.Appearance.AccordionControl.Options.UseBackColor = true;
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.btHome,
             this.btMenu,
             this.btDat,
             this.btHistory,
-            this.btSign});
+            this.btSign,
+            this.accordionControlSeparator1});
             this.accordionControl1.Location = new System.Drawing.Point(0, 39);
             this.accordionControl1.Name = "accordionControl1";
-            this.accordionControl1.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(60, 580);
+            this.accordionControl1.Size = new System.Drawing.Size(312, 580);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -160,8 +163,12 @@
             // 
             this.btSign.Name = "btSign";
             this.btSign.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btSign.Text = "Đăng nhập";
+            this.btSign.Text = "Thôn tin cá nhân";
             this.btSign.Click += new System.EventHandler(this.btLogin_Click);
+            // 
+            // accordionControlSeparator1
+            // 
+            this.accordionControlSeparator1.Name = "accordionControlSeparator1";
             // 
             // fluentDesignFormControl1
             // 
@@ -236,6 +243,7 @@
         private DevExpress.XtraBars.Navigation.NavigationPage pageBooking;
         private DevExpress.XtraBars.Navigation.NavigationPage pageHistory;
         private DevExpress.XtraBars.Navigation.NavigationPage pageLogin;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator1;
     }
 }
 

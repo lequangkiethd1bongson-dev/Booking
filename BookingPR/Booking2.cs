@@ -61,41 +61,37 @@ namespace BookingPR
                         Top = 10
                     };
 
+                    string projectPath = System.IO.Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+                    string imageFolder = System.IO.Path.Combine(projectPath, "Hinhanh");
+
                     if (!string.IsNullOrEmpty(mon.HinhAnh))
                     {
-                        // Ghép đường dẫn đến thư mục images
-                        string imageFolder = System.IO.Path.Combine(Application.StartupPath, "Hinhanh");
                         string path = System.IO.Path.Combine(imageFolder, mon.HinhAnh);
 
-                        // Nếu file ảnh tồn tại thì load
                         if (System.IO.File.Exists(path))
                         {
                             try
                             {
-                                pic.Image = Image.FromFile(path);
+                                using (var fs = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+                                {
+                                    pic.Image = Image.FromStream(fs);
+                                }
                             }
                             catch (Exception ex)
                             {
-                                // Nếu lỗi khi đọc ảnh => hiển thị thông báo tạm thời
                                 Console.WriteLine($"⚠️ Không thể đọc ảnh {path}: {ex.Message}");
                                 pic.BackColor = Color.LightGray;
-                                pic.Image = null;
                             }
                         }
                         else
                         {
-                            // Ảnh không tồn tại trong thư mục => báo đường dẫn sai
                             Console.WriteLine($"❌ Không tìm thấy ảnh: {path}");
                             pic.BackColor = Color.LightGray;
-                            pic.Image = null;
                         }
                     }
                     else
                     {
-                        // mon.HinhAnh = null hoặc trống => hiển thị khung rỗng
                         pic.BackColor = Color.LightGray;
-                        pic.Image = null;
-                        Console.WriteLine($"⚠️ Món '{mon.TenMon}' chưa có ảnh trong DB.");
                     }
 
                     Label lblTenMon = new Label()

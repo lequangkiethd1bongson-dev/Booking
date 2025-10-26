@@ -36,7 +36,7 @@ namespace BookingPR
             await RunReportAsync();
         }
 
-        // 🎨 Toolbar hiện đại
+        //  Toolbar hiện đại
         private void InitializeToolbar()
         {
             toolbarPanel = new Panel

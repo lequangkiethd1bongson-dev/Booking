@@ -89,7 +89,7 @@ namespace BookingPR
             try
             {
                 // TODO: move to App.config later
-                string connString = @"Data Source=Trung;Initial Catalog=QLDatBan;Integrated Security=True";
+                string connString = @"Data Source=DESKTOP-5VT0ON4\MSSQLSERVER01;Initial Catalog=QLDatBan;Integrated Security=True";
 
                 using (SqlConnection conn = new SqlConnection(connString))
                 {
